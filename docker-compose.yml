@@ -57,6 +57,12 @@ services:
     environment:      
       - "extra_params=--o:ssl.enable=false --o:ssl.termination=false"      
       - "domain=192.168.0.101"
+  
+  cred:
+    image: nopain1210/nc-cred:latest
+    restart: always
+    ports:
+      - "13000:3000"
     
 networks:
   app-network:
