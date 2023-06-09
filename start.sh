@@ -1,6 +1,5 @@
 #!/bin/sh
 # set -e 
-. ~/.nvm/nvm.sh
 
 ROOT_PATH="$PWD"
 FOLDER_APPS_PATH="$PWD/.data/server/apps"
@@ -36,15 +35,24 @@ sudo apt install git
 sudo apt install make
 
 #install nvm
-# sudo apt install curl
-# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+sudo apt install git -y
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+source ~/.bashrc
 
 #install node
-# nvm install 16.13.1
+nvm install 14.14.0
+nvm install 15.14.0
+
+. ~/.nvm/nvm.sh
+
+git clone https://github.com/kma-custom-nextcloud/server.git
+cd server
 
 #install docker
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
